@@ -1,0 +1,9 @@
+tailer:
+  enabled: true
+  logFile: server.log
+  readDelayMillis: 1000
+  readFromEnd: true
+  closeFileBetweenChunks: true
+client:
+  bountyProcessor:
+    url: api-gateway.aws.com/bounty
