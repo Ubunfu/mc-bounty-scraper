@@ -1,9 +1,7 @@
-package com.github.ubunfu.mcbountyscraper;
+package com.github.ubunfu.mcbountyscraper.service;
 
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorClient;
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorRequest;
-import com.github.ubunfu.mcbountyscraper.service.LogScraperService;
-import com.github.ubunfu.mcbountyscraper.service.LogScraperServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
