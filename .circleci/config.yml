@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: 'maven:slim'
+      - image: 'maven:3-openjdk-11-slim'
     steps:
       - checkout
       - run:
