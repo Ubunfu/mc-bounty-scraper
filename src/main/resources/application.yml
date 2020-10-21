@@ -6,4 +6,4 @@ tailer:
   closeFileBetweenChunks: true
 client:
   bountyProcessor:
-    url: api-gateway.aws.com/bounty
+    url: https://api-gateway.aws.com/bounty

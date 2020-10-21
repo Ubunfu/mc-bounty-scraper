@@ -2,10 +2,14 @@ package com.github.ubunfu.mcbountyscraper.service;
 
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorClient;
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorRequest;
+import feign.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import static java.lang.String.format;
 
 @Service
 public class LogScraperServiceImpl implements LogScraperService {
@@ -25,7 +29,12 @@ public class LogScraperServiceImpl implements LogScraperService {
     @Override
     public void handleLog(String log) {
         if (log.contains(MATCHER_ACHIEVEMENT)) {
-            bountyProcessorClient.postBounty(buildBoundyProcessorRequest(log));
+            try {
+                Response response = bountyProcessorClient.postBounty(buildBoundyProcessorRequest(log));
+                LOGGER.info(format("Discord response: %s", response.status()));
+            } catch (RuntimeException e) {
+                LOGGER.error(format("Error invoking Bounty Processor: %s, caused by: %s", e, e.getCause()));
+            }
         }
     }
 
