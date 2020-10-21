@@ -1,14 +1,14 @@
 version: 2.1
 
-orbs:
-  maven: circleci/maven@1.0.3
-
 jobs:
   build:
     docker:
-      - image: 'maven:3-jdk-11-slim'
+      - image: cimg/openjdk:15.0.0
     steps:
       - checkout
       - run:
           name: Build and Test and Report
-          command: mvn -DrepoToken=$COVERALLS_REPO_TOKEN clean install jacoco:report coveralls:report
+          command: mvn clean install jacoco:report
+      - run:
+          name: CodeCov Report
+          command: bash <(curl -s https://codecov.io/bash)
