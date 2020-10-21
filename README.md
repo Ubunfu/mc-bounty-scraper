@@ -1,8 +1,9 @@
 # mc-bounty-scraper
-[![Latest Release](https://img.shields.io/github/v/release/Ubunfu/mc-bounty-scraper?style=for-the-badge)](https://github.com/Ubunfu/mc-bounty-scraper/releases)
-[![CircleCI](https://img.shields.io/circleci/build/github/Ubunfu/mc-bounty-scraper?logo=circleci&style=for-the-badge)](https://app.circleci.com/pipelines/github/Ubunfu/mc-bounty-scraper)
-![Contrubutors](https://img.shields.io/github/contributors/Ubunfu/mc-bounty-scraper?color=blue&style=for-the-badge)
-![Last Commit](https://img.shields.io/github/last-commit/Ubunfu/mc-bounty-scraper?style=for-the-badge)
+[![Latest Release](https://img.shields.io/github/v/release/Ubunfu/mc-bounty-scraper)](https://github.com/Ubunfu/mc-bounty-scraper/releases)
+[![codecov](https://codecov.io/gh/Ubunfu/mc-bounty-scraper/branch/master/graph/badge.svg?token=4CP3RFDEM4)](https://codecov.io/gh/Ubunfu/mc-bounty-scraper)
+[![CircleCI](https://img.shields.io/circleci/build/github/Ubunfu/mc-bounty-scraper?logo=circleci)](https://app.circleci.com/pipelines/github/Ubunfu/mc-bounty-scraper)
+![Contrubutors](https://img.shields.io/github/contributors/Ubunfu/mc-bounty-scraper?color=blue)
+![Last Commit](https://img.shields.io/github/last-commit/Ubunfu/mc-bounty-scraper)
 
 This app scrapes minecraft server logs for messages indicating that a player earned a "bounty".  Bounties are things 
 that merit the awarding of some currency to the player's wallet.  When such a message is found, `mc-bounty-scraper` 
