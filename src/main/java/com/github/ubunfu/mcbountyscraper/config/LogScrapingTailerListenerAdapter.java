@@ -16,6 +16,8 @@ public class LogScrapingTailerListenerAdapter extends TailerListenerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LogScrapingTailerListenerAdapter.class);
 
+    private static final String ERROR_FILE_NOT_FOUND = "Unable to locate file: %s";
+
     private LogScraperService logScraperService;
     private TailerProperties tailerProperties;
 
@@ -36,11 +38,11 @@ public class LogScrapingTailerListenerAdapter extends TailerListenerAdapter {
     @Override
     public void fileNotFound() {
         try {
-            LOGGER.error(format("Unable to locate file: %s", tailerProperties.getLogFile()));
+            LOGGER.error(format(ERROR_FILE_NOT_FOUND, tailerProperties.getLogFile()));
             throw new FileNotFoundException();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.exit(1);
+            throw new RuntimeException(format(ERROR_FILE_NOT_FOUND, tailerProperties.getLogFile()), e);
         }
     }
 }
