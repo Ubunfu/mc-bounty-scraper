@@ -3,8 +3,12 @@ version: 2.1
 orbs:
   maven: circleci/maven@1.0.3
 
-workflows:
-  maven_test:
-    jobs:
-      - maven/test # checkout, build, test, and upload test results
-
+jobs:
+  build:
+    docker:
+      - image: 'maven:slim'
+    steps:
+      - checkout
+      - run:
+          name: Build and Test and Report
+          command: mvn clean install jacoco:report coveralls:report
