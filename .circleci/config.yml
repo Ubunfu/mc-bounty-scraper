@@ -11,4 +11,4 @@ jobs:
       - checkout
       - run:
           name: Build and Test and Report
-          command: mvn clean install jacoco:report coveralls:report
+          command: mvn -DrepoToken=$COVERALLS_REPO_TOKEN clean install jacoco:report coveralls:report
