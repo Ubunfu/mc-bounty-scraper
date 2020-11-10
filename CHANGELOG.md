@@ -2,5 +2,8 @@
 
 I like [semantic versioning](https://semver.org/), so this project uses it so much as I'm willing and able.
 
+## v0.1.1
+* [Building amd64 and arm64 container images]()
+
 ## v0.1.0
 * Initial Release

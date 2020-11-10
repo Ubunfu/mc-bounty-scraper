@@ -1,4 +1,4 @@
-FROM maven:slim as build
+FROM maven:3-openjdk-11-slim as build
 WORKDIR /build
 COPY . .
 RUN ["mvn", "clean", "package", "-DskipTests"]
