@@ -11,7 +11,7 @@ it POSTs to a REST endoint for a `mc-bounty-processor` service.  `mc-bounty-scra
 and the name of the bounty that was earned.
 
 ## Recognized Bounties
-* All Vanilla Minecraft achievements ("advancements")
+* All Vanilla Minecraft advancements and challenges
 
 ## Configuration
 The following configs must be provided as environment variables to the container:

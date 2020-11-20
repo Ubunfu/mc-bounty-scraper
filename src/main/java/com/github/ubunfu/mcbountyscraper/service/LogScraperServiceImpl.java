@@ -15,8 +15,10 @@ public class LogScraperServiceImpl implements LogScraperService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LogScraperServiceImpl.class);
     private static final String MATCHER_ACHIEVEMENT = "has made the advancement";
+    private static final String MATCHER_CHALLENGE = "has completed the challenge";
     private static final String LEFT_SQUARE_BRACKET = "[";
     private static final String RIGHT_SQUARE_BRACKET = "]";
+    private static final String SPACE = " ";
 
     private BountyProcessorClient bountyProcessorClient;
 
@@ -27,9 +29,9 @@ public class LogScraperServiceImpl implements LogScraperService {
 
     @Override
     public void handleLog(String log) {
-        if (log.contains(MATCHER_ACHIEVEMENT)) {
+        if (log.contains(MATCHER_ACHIEVEMENT) || log.contains(MATCHER_CHALLENGE)) {
             try {
-                Response response = bountyProcessorClient.postBounty(buildBoundyProcessorRequest(log));
+                Response response = bountyProcessorClient.postBounty(buildBountyProcessorRequest(log));
                 LOGGER.info(format("Discord response: %s", response.status()));
             } catch (RuntimeException e) {
                 LOGGER.error(format("Error invoking Bounty Processor: %s, caused by: %s", e, e.getCause()));
@@ -37,7 +39,7 @@ public class LogScraperServiceImpl implements LogScraperService {
         }
     }
 
-    private BountyProcessorRequest buildBoundyProcessorRequest(String message) {
+    private BountyProcessorRequest buildBountyProcessorRequest(String message) {
         message = stripServerInfo(message);
         String playerName = parsePlayerName(message);
         String achievement = parseAchievement(message);
@@ -52,7 +54,7 @@ public class LogScraperServiceImpl implements LogScraperService {
     }
 
     private String parsePlayerName(String message) {
-        return message.substring(0, message.indexOf(MATCHER_ACHIEVEMENT) - 1);
+        return message.split(SPACE)[0];
     }
 
     private String stripServerInfo(String message) {
