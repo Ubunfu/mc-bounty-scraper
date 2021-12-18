@@ -7,7 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class BountyProcessorRequest {
 
-    private String achievement;
-    private String player;
-
+  private String achievement;
+  private String player;
 }

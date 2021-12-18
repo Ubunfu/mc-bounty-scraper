@@ -12,19 +12,17 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 public class McBountyScraperApplication implements CommandLineRunner {
 
-	@Autowired
-	private LogScrapingTailer tailer;
+  @Autowired private LogScrapingTailer tailer;
 
-	@Value("${tailer.enabled}")
-	private boolean tailerEnabled;
+  @Value("${tailer.enabled}")
+  private boolean tailerEnabled;
 
-	public static void main(String[] args) {
-		SpringApplication.run(McBountyScraperApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(McBountyScraperApplication.class, args);
+  }
 
-	@Override
-	public void run(String... args) {
-		if (tailerEnabled)
-			tailer.run();
-	}
+  @Override
+  public void run(String... args) {
+    if (tailerEnabled) tailer.run();
+  }
 }

@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "tailer")
 public class TailerProperties {
 
-    private String logFile;
-    private long readDelayMillis;
-    private boolean readFromEnd;
-    private boolean closeFileBetweenChunks;
+  private String logFile;
+  private long readDelayMillis;
+  private boolean readFromEnd;
+  private boolean closeFileBetweenChunks;
 }
