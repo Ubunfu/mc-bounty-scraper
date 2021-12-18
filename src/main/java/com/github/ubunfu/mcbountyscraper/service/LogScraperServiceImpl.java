@@ -1,7 +1,5 @@
 package com.github.ubunfu.mcbountyscraper.service;
 
-import static java.lang.String.format;
-
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorClient;
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorRequest;
 import feign.Response;
@@ -32,9 +30,9 @@ public class LogScraperServiceImpl implements LogScraperService {
     if (log.contains(MATCHER_ACHIEVEMENT) || log.contains(MATCHER_CHALLENGE)) {
       try {
         Response response = bountyProcessorClient.postBounty(buildBountyProcessorRequest(log));
-        LOGGER.info(format("Discord response: %s", response.status()));
+        LOGGER.info("Discord response: {}", response.status());
       } catch (RuntimeException e) {
-        LOGGER.error(format("Error invoking Bounty Processor: %s, caused by: %s", e, e.getCause()));
+        LOGGER.error("Error invoking Bounty Processor: {}, caused by: {}", e, e.getCause());
       }
     }
   }
