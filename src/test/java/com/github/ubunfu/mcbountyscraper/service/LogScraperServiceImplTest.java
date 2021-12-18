@@ -1,5 +1,9 @@
 package com.github.ubunfu.mcbountyscraper.service;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorClient;
 import com.github.ubunfu.mcbountyscraper.client.BountyProcessorRequest;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,10 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class LogScraperServiceImplTest {

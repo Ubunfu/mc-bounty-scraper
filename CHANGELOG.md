@@ -2,6 +2,9 @@
 
 I like [semantic versioning](https://semver.org/), so this project uses it so much as I'm willing and able.
 
+## v1.0.0
+* [Framework updates and fixes for Log4Shell CVEs](https://github.com/Ubunfu/mc-bounty-scraper/pull/5)
+
 ## v0.1.3
 * [Scraping challenges as well as normal advancements](https://github.com/Ubunfu/mc-bounty-scraper/pull/4)
 
